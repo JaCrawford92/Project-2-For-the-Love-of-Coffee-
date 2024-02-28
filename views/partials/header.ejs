@@ -1,0 +1,18 @@
+<header>
+    <div class="container">
+        <h1>Coffee Recipes App</h1>
+        <a href="/recipes" class="nav-link">All Coffee Recipes</a>
+        <% if (user) { %>
+            <a href="/recipes/new" class="nav-link">Add New Recipe</a>
+            <li class="nav-link">Welcome <%= currentUser.username %></li>
+            <li class="nav-link">
+                <form action="/sessions?_method=DELETE" method="post">
+                    <input type="submit" value="Log Out">
+                </form>
+            </li>
+        <% } else { %>
+            <li><a href="/users/new" class="nav-link">Sign Up</a></li>
+            <li><a href="/sessions/new" class="nav-link">Log In</a></li>
+        <% } %>
+    </div>
+</header>

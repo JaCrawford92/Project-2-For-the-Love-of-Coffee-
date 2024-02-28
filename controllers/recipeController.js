@@ -21,6 +21,20 @@ const create = async (req, res) => {
     }
 }
 
+// Index
+const index = async (req, res) => {
+    try {
+        const recipes = await Recipe.find()
+        res.render('recipes/index.ejs', {
+            recipes,
+            tabTitle: 'All Recipes',
+            currentUser: req.session.currentUser  
+        })
+    }catch(err) {
+        console.log(err)
+    
+}
+
 // Seed Function
 const seed = async (req, res) => {
     try {
@@ -62,16 +76,6 @@ const seed = async (req, res) => {
         console.log(err)
 }}
 
-
-// // module.exports = {
-// //     create,
-// //     new: newRecipe,
-// //     index,
-// //     show,
-// //     edit: editRecipe,
-// //     destroy,
-// //     update
-// // }
 
 module.exports = {
     new: newRecipe,
