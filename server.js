@@ -3,12 +3,13 @@ require("./config/database")
 const express = require('express')
 const mongoose = require('mongoose')
 const methodOverride = require('method-override')
-// const  recipeRoutes = require('./routes/recipeRoutes')
-// const recipeController = require('./controllers/recipeController');
-// const session = require('express-session')
-
+const session = require('express-session')
 const app = express()
 const port = 3000
+
+// Importing the Recipe Modelq
+const userController = require('./controllers/userController')
+const sessionsController = require('./controllers/sessions')
 
 // EJS
 app.set('view engine', 'ejs')
@@ -18,7 +19,13 @@ app.use(express.static('public'))
 app.use(express.json())
 app.use(express.urlencoded({extended: true}))
 app.use(methodOverride('_method'))
+app.use(session({
+    secret: process.env.secret,
+    resave: false,
+    saveUninitialized: false
+}))
 
+app.use('/users', userController)
 
 // Home Route
 app.get('/', (req, res) => {
