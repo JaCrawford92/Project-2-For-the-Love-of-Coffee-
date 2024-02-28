@@ -20,12 +20,13 @@ app.use(express.json())
 app.use(express.urlencoded({extended: true}))
 app.use(methodOverride('_method'))
 app.use(session({
-    secret: process.env.secret,
+    secret: process.env.SECRET,
     resave: false,
     saveUninitialized: false
 }))
 
 app.use('/users', userController)
+app.use('/sessions', sessionsController)
 
 // Home Route
 app.get('/', (req, res) => {

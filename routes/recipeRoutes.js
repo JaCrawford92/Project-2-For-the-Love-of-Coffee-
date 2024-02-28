@@ -1,29 +1,31 @@
 // Description: This file is used to define the routes for the recipe model.
 const router = require('express').Router()
 const isAuthenticated = require('../controllers/isAuthenticated')
-// const Recipe = require('../models/Recipe');
-// // const recipeController = require('../controllers/recipeController');
+const recipeCtrl = require('../controllers/recipeController');
 
 router.use(isAuthenticated)
-// // GET /recipes
-// router.get('/', recipeController.index)
+// GET /recipes
+router.get('/', recipeCtrl.index)
 
-// // GET /recipes/new
-// router.get('/new', recipeController.new)
+// GET /recipes/new
+router.get('/new', recipeCtrl.new)
 
-// // POST /recipes
-// router.post('/', recipeController.create)
+// POST /recipes
+router.post('/', recipeCtrl.create)
 
-// // GET /recipes/:id
-// router.get('/:id', recipeController.show)
+// GET / seed
+router.get('/seed', recipeCtrl.seed)
 
-// // GET /recipes/:id/edit
-// router.get('/:id/edit', recipeController.edit)
+// GET /recipes/:id
+router.get('/:id', recipeCtrl.show)
 
-// // PUT /recipes/:id
-// router.put('/:id', recipeController.update)
+// GET /recipes/:id/edit
+router.get('/:id/edit', recipeCtrl.edit)
 
-// // DELETE /recipes/:id
-// router.delete('/:id', recipeController.delete)
+// PUT /recipes/:id
+router.put('/:id', recipeCtrl.update)
 
-// module.exports = router;
+// DELETE /recipes/:id
+router.delete('/:id', recipeCtrl.delete)
+
+module.exports = router;
