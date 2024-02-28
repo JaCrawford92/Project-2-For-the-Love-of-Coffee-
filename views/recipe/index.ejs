@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Coffee Recipes</h1>
+    <a href="/recipes/new">Add New Recipe</a>
+    <ul>
+        <% recipes.forEach(recipe => { %>
+            <li>
+                <a href="/recipes/<%= recipes.id %>"><%= recipe.name %></a>
+                <a href="/recipes/<%= recipe.id %>/edit">Edit</a>
+                <form action="/recipes/<%= recipe.id %>?method=DELETE" method="POST">
+                    <button type="submit">Delete</button>
+                </form>
+            </li>
+       <% }) %>
+    </ul>
+</body>
+</html>
