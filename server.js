@@ -1,13 +1,13 @@
 require('dotenv').config()
-require("./config/database")
 const express = require('express')
-const mongoose = require('mongoose')
+const app = express()
+require('./config/database')
 const methodOverride = require('method-override')
 const session = require('express-session')
-const app = express()
+
 
 // Importing the Recipe Model
-const recipeRoutes = require('./routes/recipeRoutes.js')
+const recipeRoutes = require('./routes/recipes.js')
 const userController = require('./controllers/userController')
 const sessionsController = require('./controllers/sessions.js')
 
@@ -26,13 +26,15 @@ app.use(session({
 }))
 
 
-app.use('/sessions', sessionsController)
+
 app.use('/recipes', recipeRoutes)
 app.use('/users', userController)
+app.use('/sessions', sessionsController)
 
 // Home Route
 app.get('/', (req, res) => {
-    res.send('For the love of Coffee')
+    // res.send('For the love of Coffee')
+    res.redirect('/recipes/')
     // res.render('recipe/index')
 })
 

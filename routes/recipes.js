@@ -1,7 +1,8 @@
 // Description: This file is used to define the routes for the recipe model.
 const router = require('express').Router()
+const recipeCtrl = require('../controllers/recipeController')
 const isAuthenticated = require('../controllers/isAuthenticated')
-const recipeCtrl = require('../controllers/recipeController');
+
 
 router.use(isAuthenticated)
 // GET /recipes

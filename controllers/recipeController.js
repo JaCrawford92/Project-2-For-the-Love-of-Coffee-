@@ -1,4 +1,4 @@
-const Recipe = require('../models/Recipe')
+const Recipe = require('../models/recipe.js')
 
 
 // Index
@@ -17,9 +17,10 @@ const index = async (req, res) => {
 }
 
 // New Recipe
-const newRecipe = (req, res) => {
+const newForm = (req, res) => {
     try {
-        res.render('recipe/new.ejs', {tabTitle: 'New Recipe',
+        res.render('recipe/new.ejs', {
+            tabTitle: 'New Recipe',
         currentUser: req.session.currentUser})
     }catch(err) {
         console.log(err)
@@ -32,7 +33,7 @@ const create = async (req, res) => {
     try {
         const newRecipe = await Recipe.create(req.body)
         console.log(newRecipe)
-        res.redirect('/recipe')
+        res.redirect('/recipes/')
     }catch(err) {
         console.log(err)
     }
@@ -43,9 +44,9 @@ const show = async (req, res) => {
     try {
         const index = req.params.id
         const recipe = await Recipe.findById(index)
-        res.render('/recipe/show.ejs', {
+        res.render('show.ejs', {
             recipe,
-            tabTitle: recipes.name,
+            tabTitle: recipe.name,
             currentUser: req.session.currentUser
         })
     }catch(err) {
@@ -88,16 +89,17 @@ const seed = async (req, res) => {
               instructions: "Brew a cup of coffee and let it cool. Fill a glass with ice cubes. Pour the cooled coffee over the ice. Add milk or sweetener if desired."
             }
           ])
-            console.log(coffeeRecipes)
-            // res.redirect('/recipes')
+            // console.log(coffeeRecipes)
+            res.redirect('/recipes')
     }catch(err) {
         console.log(err)
 }}
 
+// Edit Recipe
 const editForm = async (req, res) => {
     try {
         const recipt = await Recipe.findById(req.params.id)
-        res.render('edit', {
+        res.render('edit.ejs', {
             recipe,
             tabTitle: 'Edit Recipe',
             currentUser: req.session.currentUser
@@ -109,7 +111,7 @@ const editForm = async (req, res) => {
 
 const update = async (req, res) => {
     try {
-        req.body.ingredients = req.body.ingredients.split(',')
+        // req.body.ingredients = req.body.ingredients.split(',')
         const recipe = await Recipe.findByIdAndUpdate(req.params.id, req.body)
         res.redirect('/recipes')
     }catch(err) {
@@ -128,11 +130,11 @@ const destroy = async (req, res) => {
 
 
 module.exports = {
-    new: newRecipe,
-    create,
-    seed,
     index,
+    new: newForm,
+    create,
     show,
+    seed,
     edit: editForm,
     update,
     destroy

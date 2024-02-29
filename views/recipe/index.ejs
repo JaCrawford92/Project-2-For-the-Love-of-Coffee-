@@ -28,12 +28,10 @@
     <h4>Add new Recipes</h4>
     <a href="/recipes/new">Add New Recipe</a>
     <ul>
-      <% for (let i = 0; i < recipes.length; i++) { %>
-        <li>
+      <% for(let i = 0; i < recipes.length; i++) { %>
             <a href="/recipes/<%= recipes[i]._id %>">
-                <% recipe[i].name %>
+                <% recipes[i].name %>
             </a>
-        </li>
         <% } %>
     </ul>
     <footer class="fixed-bottom text-center bg-light p-2">

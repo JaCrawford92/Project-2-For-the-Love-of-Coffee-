@@ -7,6 +7,48 @@
         <link rel="stylesheet" href="/css/style.css">
     </head>
 <body class="Coffee-Recipes">
-    
+    <h1 class="">New Coffee Recipes</h1>
+    <form action="/recipes" method="POST" class="container-sm bg-light p-3">
+        <div>
+            <div>
+                <label for="name" class="form-label">Coffee</label>
+                <input 
+                    type="text"
+                    class="form-control"
+                    name="name"
+                    id="name"
+                    placeholder="Coffee Name">
+            </div>
+            <div>
+                <label for="description" class="form-label">Description</label>
+                <input 
+                    type="text"
+                    class="form-control"
+                    name="description"
+                    id="description"
+                    placeholder="Description">
+            </div>
+            <div>
+                <label for="ingredients" class="form-label">Ingredients</label>
+                <input 
+                    type="text"
+                    class="form-control"
+                    name="ingredients"
+                    id="ingredients"
+                    placeholder="Ingredients">
+            </div>
+            <div>
+                <label for="instructions" class="form-label">Instructions</label>
+                <input 
+                    type="text"
+                    class="form-control"
+                    name="instructions"
+                    id="instructions"
+                    placeholder="Instructions">
+            </div>
+        </div>
+        <div>
+            <input type="submit" value="Create Recipe" class="btn btn-primary">
+    </form>
 </body>
 </html>
