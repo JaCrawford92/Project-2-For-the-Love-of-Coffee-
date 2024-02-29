@@ -1,9 +1,25 @@
-const Recipe = require('../models/Recipe');
+const Recipe = require('../models/recipe');
+
+
+// Index
+const index = async (req, res) => {
+    try {
+        const recipes = await Recipe.find()
+        res.render('recipe/index.ejs', {
+            recipes,
+            tabTitle: 'Index',
+            currentUser: req.session.currentUser  
+        })
+    }catch(err) {
+        console.log(err)
+    }
+    
+}
 
 // New Recipe
 const newRecipe = (req, res) => {
     try {
-        res.render('recipes/new.ejs', {tabTitle: 'New Recipe',
+        res.render('new.ejs', {tabTitle: 'New Recipe',
         currentUser: req.session.currentUser})
     }catch(err) {
         console.log(err)
@@ -21,24 +37,25 @@ const create = async (req, res) => {
     }
 }
 
-// Index
-const index = async (req, res) => {
+// Show Recipe
+const show = async (req, res) => {
     try {
-        const recipes = await Recipe.find()
-        res.render('recipes/index.ejs', {
-            recipes,
-            tabTitle: 'All Recipes',
-            currentUser: req.session.currentUser  
+        const index = req.params.id
+        const recipe = await Recipe.findById(index)
+        res.render('/recipe/show.ejs', {
+            recipe,
+            tabTitle: recipes.name,
+            currentUser: req.session.currentUser
         })
     }catch(err) {
         console.log(err)
-    
+    }
 }
 
 // Seed Function
 const seed = async (req, res) => {
     try {
-        const coffeeRecipes = await Recipe.create([
+        const recipes = await Recipe.create([
             {
               name: "Classic Americano",
               description: "A simple, robust coffee made by adding hot water to espresso, resulting in a strength similar to drip coffee but with a different flavor.",
@@ -76,9 +93,46 @@ const seed = async (req, res) => {
         console.log(err)
 }}
 
+const editForm = async (req, res) => {
+    try {
+        const recipt = await Recipe.findById(req.params.id)
+        res.render('edit', {
+            recipe,
+            tabTitle: 'Edit Recipe',
+            currentUser: req.session.currentUser
+        })
+    }catch(err) {
+        console.log(err)
+    }
+}
+
+const update = async (req, res) => {
+    try {
+        req.body.ingredients = req.body.ingredients.split(',')
+        const recipe = await Recipe.findByIdAndUpdate(req.params.id, req.body)
+        res.redirect('/recipes')
+    }catch(err) {
+        console.log(err)
+    }
+}
+
+const destroy = async (req, res) => {
+    try {
+        await Recipe.findByIdAndDelete(req.params.id)
+        res.redirect('/recipes')
+    }catch(err) {
+        console.log(err)
+    }
+}
+
 
 module.exports = {
     new: newRecipe,
     create,
-    seed
+    seed,
+    index,
+    show,
+    edit: editForm,
+    update,
+    destroy
 }

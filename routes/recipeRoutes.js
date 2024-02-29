@@ -26,6 +26,6 @@ router.get('/:id/edit', recipeCtrl.edit)
 router.put('/:id', recipeCtrl.update)
 
 // DELETE /recipes/:id
-router.delete('/:id', recipeCtrl.delete)
+router.delete('/:id', recipeCtrl.destroy)
 
 module.exports = router;

@@ -7,9 +7,10 @@ const session = require('express-session')
 const app = express()
 const port = 3000
 
-// Importing the Recipe Modelq
+// Importing the Recipe Model
+const recipeRoutes = require('./routes/recipeRoutes.js')
 const userController = require('./controllers/userController')
-const sessionsController = require('./controllers/sessions')
+const sessionsController = require('./controllers/sessions.js')
 
 // EJS
 app.set('view engine', 'ejs')
@@ -25,8 +26,10 @@ app.use(session({
     saveUninitialized: false
 }))
 
-app.use('/users', userController)
+
 app.use('/sessions', sessionsController)
+app.use('/recipes', recipeRoutes)
+app.use('/users', userController)
 
 // Home Route
 app.get('/', (req, res) => {

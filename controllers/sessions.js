@@ -1,7 +1,7 @@
 const bcrypt = require('bcrypt')
 const router = require('express').Router()
 const User = require('../models/User.js')
-const { rawListeners } = require('../models/recipe.js')
+// const { rawListeners } = require('../models/Recipe')
 
 // GET /signup
 router.get('/new', (req, res) => {
@@ -17,8 +17,8 @@ router.post('/', async (req, res) => {
         if(!foundUser){
             res.send('Coffee user not found')
         }else if(bcrypt.compareSync(req.body.password, foundUser.password)){
-            raq.session.currentUser = foundUser.username
-            res.redirect('/')
+            req.session.currentUser = foundUser.username
+            res.redirect('/recipes')
         }else{
             res.send('Invalid Coffee Password')
         }

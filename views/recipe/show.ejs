@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-    <%- include ("./partials/head.ejs") %>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>All Coffee | <%= tabTitle %></title>
+        <link rel="stylesheet" href="/css/style.css">
+     </head>
 <body>
     <h1><%= recipe.name %></h1>
     <p><%= recipe.description %></p>
@@ -10,7 +15,7 @@
             <li><%= ingredient %></li>
         <% }) %>
     </ul>
-    <h2>Instructiins</h2>
+    <h2>Instructions</h2>
     <ol>
         <% recipe.instructions.forEach(instruction => { %>
             <li><%= instruction %></li>
