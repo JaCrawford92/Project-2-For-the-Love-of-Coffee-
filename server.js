@@ -5,7 +5,6 @@ const mongoose = require('mongoose')
 const methodOverride = require('method-override')
 const session = require('express-session')
 const app = express()
-const port = 3000
 
 // Importing the Recipe Model
 const recipeRoutes = require('./routes/recipeRoutes.js')
@@ -37,6 +36,6 @@ app.get('/', (req, res) => {
     // res.render('recipe/index')
 })
 
-app.listen(port, () => {
+app.listen(process.env.PORT, () => {
     console.log('Your Coffee is brewing on port 3000')
 })

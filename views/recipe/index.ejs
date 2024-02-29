@@ -6,10 +6,10 @@
         <title>All Coffee | <%= tabTitle %></title>
         <link rel="stylesheet" href="/css/style.css">
      </head>
-<body>
+<body class="Coffee-Recipes">
     <header class="navbar bg-light opacity-75">
         <div class="container">
-          <h1>Fruits App</h1>
+          <h1>Coffee Recipes</h1>
           <a class="nav-link" href="/recipes">All Recipes</a>
           <% if (currentUser) { %>
             <a class="nav-link" href="/recipes/new">Create a new Coffee recipe</a>
@@ -25,12 +25,14 @@
             <% } %>
         </div>
       </header>
-    <h1>Coffee Recipes</h1>
+    <h4>Add new Recipes</h4>
     <a href="/recipes/new">Add New Recipe</a>
     <ul>
       <% for (let i = 0; i < recipes.length; i++) { %>
         <li>
-            <a href="/recipes/<%= recipes[i]._id %>"><% recipes[i].name %></a>
+            <a href="/recipes/<%= recipes[i]._id %>">
+                <% recipe[i].name %>
+            </a>
         </li>
         <% } %>
     </ul>

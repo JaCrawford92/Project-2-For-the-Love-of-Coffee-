@@ -1,4 +1,4 @@
-const Recipe = require('../models/recipe');
+const Recipe = require('../models/Recipe')
 
 
 // Index
@@ -19,7 +19,7 @@ const index = async (req, res) => {
 // New Recipe
 const newRecipe = (req, res) => {
     try {
-        res.render('new.ejs', {tabTitle: 'New Recipe',
+        res.render('recipe/new.ejs', {tabTitle: 'New Recipe',
         currentUser: req.session.currentUser})
     }catch(err) {
         console.log(err)
@@ -27,11 +27,12 @@ const newRecipe = (req, res) => {
 }
 
 // Create Recipe
+// Post
 const create = async (req, res) => {
     try {
         const newRecipe = await Recipe.create(req.body)
         console.log(newRecipe)
-        res.redirect('/recipes')
+        res.redirect('/recipe')
     }catch(err) {
         console.log(err)
     }
@@ -88,7 +89,7 @@ const seed = async (req, res) => {
             }
           ])
             console.log(coffeeRecipes)
-            res.redirect('/recipes')
+            // res.redirect('/recipes')
     }catch(err) {
         console.log(err)
 }}
