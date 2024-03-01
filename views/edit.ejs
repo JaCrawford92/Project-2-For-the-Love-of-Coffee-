@@ -1,12 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Coffee Recipes | <%= tabTitle %></title>
-        <link rel="stylesheet" href="/css/style.css">
-    </head>
+    <%- include ("./partials/head.ejs") %>
 <body class="Coffee-Recipes">
-    
+    <%- include ('./partials/header.ejs') %>
+    <h1 class="">Edit Coffee Recipes <%= recipe.name %></h1>
+    <form action="/recipes/<%= recipe._id %>?_method=PUT" method="POST" class="container-sm bg-light p-3">
+        <div>
+            <div>
+                <label for="name" class="form-label">Coffee</label>
+                <input 
+                    type="text"
+                    class="form-control"
+                    name="name"
+                    id="name"
+                    value="<%= recipe.name %>"
+                    placeholder="Coffee Name">
+            </div>
+            <div>
+                <label for="description" class="form-label">Description</label>
+                <input 
+                    type="text"
+                    class="form-control"
+                    name="description"
+                    id="description"
+                    value="<%= recipe.description %>"
+                    placeholder="Description">
+            </div>
+            <div>
+                <label for="ingredients" class="form-label">Ingredients</label>
+                <input 
+                    type="text"
+                    class="form-control"
+                    name="ingredients"
+                    id="ingredients"
+                    value="<%= recipe.ingredients %>"
+                    placeholder="Ingredients">
+            </div>
+            <div>
+                <label for="instructions" class="form-label">Instructions</label>
+                <input 
+                    type="text"
+                    class="form-control"
+                    name="instructions"
+                    id="instructions"
+                    value="<%= recipe.instructions %>"
+                    placeholder="Instructions">
+            </div>
+            <div>
+                <label for="image" class="form-label">Image</label>
+                <input 
+                    type="text"
+                    class="form-control"
+                    name="image"
+                    id="image"
+                    value="<%= recipe.image %>"
+                    placeholder="Image">
+            </div>
+        </div>
+        <div>
+            <input type="submit" value="Update Recipe" class="btn btn-primary">
+    <%- include ("./partials/footer.ejs") %>  
 </body>
 </html>

@@ -1,12 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Coffee Recipes | <%= tabTitle %></title>
-        <link rel="stylesheet" href="/css/style.css">
-    </head>
+    <%- include ("./partials/head.ejs") %>
 <body class="Coffee-Recipes">
+    <%- include ('./partials/header.ejs') %>
     <h1 class="">New Coffee Recipes</h1>
     <form action="/recipes" method="POST" class="container-sm bg-light p-3">
         <div>
@@ -50,5 +46,6 @@
         <div>
             <input type="submit" value="Create Recipe" class="btn btn-primary">
     </form>
+    <%- include ("./partials/footer.ejs") %>
 </body>
 </html>
