@@ -5,7 +5,7 @@ const Recipe = require('../models/recipe.js')
 const index = async (req, res) => {
     try {
         const recipes = await Recipe.find()
-        res.render('recipe/index.ejs', {
+        res.render('index.ejs', {
             recipes,
             tabTitle: 'Index',
             currentUser: req.session.currentUser  
@@ -19,7 +19,7 @@ const index = async (req, res) => {
 // New Recipe
 const newForm = (req, res) => {
     try {
-        res.render('recipe/new.ejs', {
+        res.render('new.ejs', {
             tabTitle: 'New Recipe',
         currentUser: req.session.currentUser})
     }catch(err) {
@@ -33,7 +33,7 @@ const create = async (req, res) => {
     try {
         const newRecipe = await Recipe.create(req.body)
         console.log(newRecipe)
-        res.redirect('/recipes/')
+        res.redirect('/recipes')
     }catch(err) {
         console.log(err)
     }
@@ -95,6 +95,27 @@ const seed = async (req, res) => {
         console.log(err)
 }}
 
+// Destroy Recipe
+const destroy = async (req, res) => {
+    try {
+        await Recipe.findByIdAndDelete(req.params.id)
+        res.redirect('/recipes')
+    }catch(err) {
+        console.log(err)
+    }
+}
+
+// Update Recipe
+const update = async (req, res) => {
+    try {
+        // req.body.ingredients = req.body.ingredients.split(',')
+        const recipe = await Recipe.findByIdAndUpdate(index, req.body, {new: true})
+        res.redirect('/recipes')
+    }catch(err) {
+        console.log(err)
+    }
+}
+
 // Edit Recipe
 const editForm = async (req, res) => {
     try {
@@ -109,25 +130,6 @@ const editForm = async (req, res) => {
     }
 }
 
-const update = async (req, res) => {
-    try {
-        // req.body.ingredients = req.body.ingredients.split(',')
-        const recipe = await Recipe.findByIdAndUpdate(req.params.id, req.body)
-        res.redirect('/recipes')
-    }catch(err) {
-        console.log(err)
-    }
-}
-
-const destroy = async (req, res) => {
-    try {
-        await Recipe.findByIdAndDelete(req.params.id)
-        res.redirect('/recipes')
-    }catch(err) {
-        console.log(err)
-    }
-}
-
 
 module.exports = {
     index,
@@ -135,7 +137,7 @@ module.exports = {
     create,
     show,
     seed,
-    edit: editForm,
     update,
-    destroy
+    destroy,
+    edit: editForm
 }

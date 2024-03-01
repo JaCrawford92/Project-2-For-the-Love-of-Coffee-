@@ -2,7 +2,7 @@
     <div class="container">
         <h1>Coffee Recipes App</h1>
         <a href="/recipes" class="nav-link">All Coffee Recipes</a>
-        <% if (user) { %>
+        <% if (currentUser) { %>
             <a href="/recipes/new" class="nav-link">Add New Recipe</a>
             <li class="nav-link">Welcome <%= currentUser.username %></li>
             <li class="nav-link">

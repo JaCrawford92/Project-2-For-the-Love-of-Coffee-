@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>All Coffee | <%= tabTitle %></title>
+        <link rel="stylesheet" href="/css/style.css">
+     </head>
+<body class="Coffee-Recipes">
+    <header class="navbar bg-light opacity-75">
+        <div class="container">
+          <h1>Coffee Recipes</h1>
+          <a class="nav-link" href="/recipes">All Recipes</a>
+            <% if (currentUser) { %>
+            <a class="nav-link" href="/recipes/edit">Create a new Coffee recipe</a>
+            <li class="nav-link">Welcome <%= currentUser.username %></li>
+            <div class="card Coffee-card text-center">
+                <div>
+                    
+                </div>
+                <a class="nav-link" href="/recipes/new">Add New Recipe</a>
+                
+            </div>
+            <li class="nav-link">
+              <form action="/sessions?_method=DELETE" method="POST">
+                <input type="submit" value='Log Out' />
+                </form>
+            </li>
+            <% } else {
+
+            <% } %>
+            <li><a class="nav-link" href="/users/new">Sign Up</a></li>
+        </div>
+    </ol>
+</body>
+</html>
