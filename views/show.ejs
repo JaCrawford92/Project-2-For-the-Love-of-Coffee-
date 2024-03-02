@@ -2,17 +2,30 @@
 <html lang="en">
     <%- include ("./partials/head.ejs") %>
 <body class="Coffee-Recipes">
+    <%- include ("./partials/header.ejs") %>
+    <h1 class="text-center">Coffee Recipes</h1>
+    <h3><%= Recipe.name.toUpperCase() %></h3>
+    <div>
+        <p><%= recipe.description %></p>
+        <p><%= recipe.ingredients %></p>
+        <p><%= recipe.instructions %></p>
+        <img src="<%= recipe.image %>" alt="">
+    </div>
+    <div class="btn-format">
+
+    </div>
     <%- include ("./partials/footer.ejs") %>
-          <h1>Coffee Recipes</h1>
-          <a class="nav-link" href="/recipes">All Recipes</a>
-            <% if (currentUser) { %>
-            <a class="nav-link" href="/recipes/edit">Create a new Coffee recipe</a>
-            <li class="nav-link">Welcome <%= currentUser.username %></li>
+</body>
+</html>
+
+<!-- <h1 class="text-center">Coffee Recipes</h1>
+    <div class="container">
+        <div class="row">
             <div class="card Coffee-card text-center">
                 <div>
                     
                 </div>
-                <a class="nav-link" href="/recipes/new">Add New Recipe</a>
+                <a class="nav-link" href="new">Add New Recipe</a>
                 
             </div>
             <li class="nav-link">
@@ -25,7 +38,4 @@
             <% } %>
             <li><a class="nav-link" href="/users/new">Sign Up</a></li>
         </div>
-    </ol>
-    <%- include ("./partials/footer.ejs") %>
-</body>
-</html>
+    </ol> -->

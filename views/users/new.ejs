@@ -1,16 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign Up</title>
-</head>
+<%- include ("../partials/head.ejs") %>
 <body>
+    <%- include('../partials/header') %>
     <h1>Sign Up</h1>
     <form action="/users" method="post">
-        username: <input required type="text" name="username"><br>
-        password: <input required type="text" name="password"><br>
+        Username: <input required type="text" name="username"><br>
+        Password: <input required type="text" name="password"><br>
         <input type="submit" name="" value="Sign Up">
     </form>
+    <%- include ("../partials/footer.ejs") %>
 </body>
 </html>

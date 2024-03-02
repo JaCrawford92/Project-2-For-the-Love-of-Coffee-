@@ -109,7 +109,7 @@ const destroy = async (req, res) => {
 const update = async (req, res) => {
     try {
         // req.body.ingredients = req.body.ingredients.split(',')
-        const recipe = await Recipe.findByIdAndUpdate(index, req.body, {new: true})
+        const recipe = await Recipe.findByIdAndUpdate(req.params.id, req.body, {new: true})
         res.redirect('/recipes')
     }catch(err) {
         console.log(err)
@@ -119,7 +119,7 @@ const update = async (req, res) => {
 // Edit Recipe
 const editForm = async (req, res) => {
     try {
-        const recipt = await Recipe.findById(req.params.id)
+        const recipe = await Recipe.findById(req.params.id)
         res.render('edit.ejs', {
             recipe,
             tabTitle: 'Edit Recipe',
