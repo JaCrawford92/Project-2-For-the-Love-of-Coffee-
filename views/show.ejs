@@ -4,16 +4,29 @@
 <body class="Coffee-Recipes">
     <%- include ("./partials/header.ejs") %>
     <h1 class="text-center">Coffee Recipes</h1>
-    <h3><%= Recipe.name.toUpperCase() %></h3>
+    <h3><%= recipe.name.toUpperCase() %></h3>
     <div>
+        <p><%= recipe.name %></p>
         <p><%= recipe.description %></p>
         <p><%= recipe.ingredients %></p>
         <p><%= recipe.instructions %></p>
         <img src="<%= recipe.image %>" alt="">
+
+        <a href="/recipes/<%= recipe._id %>/edit">Edit</a>
+        <form action="/recipes/<%= recipe._id %>?_method=DELETE" method="POST">
+            <input type="submit" value="Delete">
+        </form>
     </div>
     <div class="btn-format">
+        <a href="/recipes/new">Add New Recipe</a>
+        <form action="/sessions?_method=DELETE" method="POST">
+            <input type="submit" value='Log Out' />
+        </form>
 
     </div>
+
+    
+
     <%- include ("./partials/footer.ejs") %>
 </body>
 </html>
