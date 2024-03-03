@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
     <%- include ("./partials/head.ejs") %>
-<body class="Coffee-Recipes">
+<body class="card-panel lime">
     <%- include ("./partials/header.ejs") %>
-    <h1 class="text-center">Coffee Recipes</h1>
-    <h3><%= recipe.name.toUpperCase() %></h3>
-    <div class="">
-        <p><%= recipe.name %></p>
+    <!-- <h1 class="text-center">Coffee Recipes</h1> -->
+    <h1><%= recipe.name %></h1>
+        <img src="<%= recipe.image %>" alt="Coffee-Image">
         <p><%= recipe.description %></p>
         <p><%= recipe.ingredients %></p>
         <p><%= recipe.instructions %></p>
@@ -16,7 +15,7 @@
         <form action="/recipes/<%= recipe._id %>?_method=DELETE" method="POST">
             <input type="submit" value="Delete">
         </form>
-    </div>
+    
     <div class="btn-format">
         <a href="/recipes/new">Add New Recipe</a>
         <form action="/sessions?_method=DELETE" method="POST">

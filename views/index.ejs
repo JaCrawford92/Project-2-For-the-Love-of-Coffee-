@@ -8,16 +8,19 @@
     <div>
       <% for(let i = 0; i < recipes.length; i++) { %>
         <!-- Show Page -->
-            <a href="/recipes/<%= recipes[i]._id %>"></a>
-            <p><%= recipes[i].name %></p>
+        <div class="card">
+            <% recipes.forEach(function(recipe) { %>     
+            <span class="card-title"><a href="/recipes/<%= recipes[i]._id %>"><%= recipes[i].name %></a></span>
             <p><%= recipes[i].description %></p>
             <p><%= recipes[i].ingredients %></p>
             <p><%= recipes[i].instructions %></p>
             <img src="<%= recipes[i].image %>" alt="Coffee image">
+        </div>
             <a href="/recipes/<%= recipes[i]._id %>/edit">Edit</a>
             <form action="/recipes/<%= recipes[i]._id %>?_method=DELETE" method="POST">
                 <input type="submit" value="Delete">
             </form>
+        <% }) %>
         <% } %>
     </div>
     <%- include ("./partials/footer.ejs") %>

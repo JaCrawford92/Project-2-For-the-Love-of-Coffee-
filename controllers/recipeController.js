@@ -5,7 +5,7 @@ const Recipe = require('../models/recipe.js')
 const index = async (req, res) => {
     try {
         const recipes = await Recipe.find()
-        res.render('index.ejs', {
+        res.render('index', {
             recipes,
             tabTitle: 'Index',
             currentUser: req.session.currentUser  
@@ -19,9 +19,9 @@ const index = async (req, res) => {
 // New Recipe
 const newForm = (req, res) => {
     try {
-        res.render('new.ejs', {
+        res.render('new', {
             tabTitle: 'New Recipe',
-        currentUser: req.session.currentUser})
+            currentUser: req.session.currentUser})
     }catch(err) {
         console.log(err)
     }
@@ -44,11 +44,15 @@ const show = async (req, res) => {
     try {
         const index = req.params.id
         const recipe = await Recipe.findById(index)
-        res.render('show.ejs', {
-            recipe,
-            tabTitle: recipe.name,
-            currentUser: req.session.currentUser
-        })
+        if(!recipe) {
+            res.redirect('/recipes/show')
+        }else{
+            res.render('/recipes', {
+                recipe,
+                tabTitle: recipe.name,
+                currentUser: req.session.currentUser
+            })
+        }
     }catch(err) {
         console.log(err)
     }
