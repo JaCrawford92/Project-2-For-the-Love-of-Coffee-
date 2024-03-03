@@ -3,49 +3,22 @@
     <%- include ("./partials/head.ejs") %>
 <body class="card-panel lime">
     <%- include ("./partials/header.ejs") %>
-    <!-- <h1 class="text-center">Coffee Recipes</h1> -->
-    <h1><%= recipe.name %></h1>
+    <h1 class="text-center">Coffee Recipes</h1>
+    <% if(recipe) { %>
+        The recipe is: <%= recipe.name %>
         <img src="<%= recipe.image %>" alt="Coffee-Image">
         <p><%= recipe.description %></p>
         <p><%= recipe.ingredients %></p>
         <p><%= recipe.instructions %></p>
-        <img src="<%= recipe.image %>" alt="Coffee-Image">
+        <% } else { %>
+            <h1>Recipe not found</h1>
+        <% } %>
 
-        <a href="/recipes/<%= recipe._id %>/edit">Edit</a>
-        <form action="/recipes/<%= recipe._id %>?_method=DELETE" method="POST">
-            <input type="submit" value="Delete">
-        </form>
-    
     <div class="btn-format">
-        <a href="/recipes/new">Add New Recipe</a>
-        <form action="/sessions?_method=DELETE" method="POST">
-            <input type="submit" value='Log Out' />
-        </form>
-
-    </div>
     <%- include ("./partials/footer.ejs") %>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 </body>
 </html>
 
-<!-- <h1 class="text-center">Coffee Recipes</h1>
-    <div class="container">
-        <div class="row">
-            <div class="card Coffee-card text-center">
-                <div>
-                    
-                </div>
-                <a class="nav-link" href="new">Add New Recipe</a>
-                
-            </div>
-            <li class="nav-link">
-              <form action="/sessions?_method=DELETE" method="POST">
-                <input type="submit" value='Log Out' />
-                </form>
-            </li>
-            <% } else {
 
-            <% } %>
-            <li><a class="nav-link" href="/users/new">Sign Up</a></li>
-        </div>
-    </ol> -->
+

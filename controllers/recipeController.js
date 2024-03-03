@@ -45,9 +45,9 @@ const show = async (req, res) => {
         const index = req.params.id
         const recipe = await Recipe.findById(index)
         if(!recipe) {
-            res.redirect('/recipes/show')
+            res.redirect('show')
         }else{
-            res.render('/recipes', {
+            res.render('show', {
                 recipe,
                 tabTitle: recipe.name,
                 currentUser: req.session.currentUser
