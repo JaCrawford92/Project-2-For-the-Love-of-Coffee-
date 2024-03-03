@@ -4,13 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <style>
+        body, .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+    </style>
 </head>
 <body>
+    <div class="row container">
+        <div class="card-panel">
     <h1>Login</h1>
     <form action="/sessions" method="post">
         Username: <input required type="text" name="username"><br>
         Password: <input required type="text" name="password"><br>
-        <input type="submit" name="" value="Login">
+        <input class="waves-effect waves-light btn" type="submit" name="" value="Login">
     </form>
-</body>
+    <h1>Sign Up</h1>
+    <form action="/users" method="post">
+        Username: <input required type="text" name="username"><br>
+        Password: <input required type="text" name="password"><br>
+        <input class="waves-effect waves-light btn" type="submit" name="" value="Sign Up">
+    </form>
+        </div>
+    </div>
 </html>

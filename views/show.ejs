@@ -5,12 +5,12 @@
     <%- include ("./partials/header.ejs") %>
     <h1 class="text-center">Coffee Recipes</h1>
     <h3><%= recipe.name.toUpperCase() %></h3>
-    <div>
+    <div class="">
         <p><%= recipe.name %></p>
         <p><%= recipe.description %></p>
         <p><%= recipe.ingredients %></p>
         <p><%= recipe.instructions %></p>
-        <img src="<%= recipe.image %>" alt="">
+        <img src="<%= recipe.image %>" alt="Coffee-Image">
 
         <a href="/recipes/<%= recipe._id %>/edit">Edit</a>
         <form action="/recipes/<%= recipe._id %>?_method=DELETE" method="POST">
@@ -24,10 +24,8 @@
         </form>
 
     </div>
-
-    
-
     <%- include ("./partials/footer.ejs") %>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 </body>
 </html>
 
