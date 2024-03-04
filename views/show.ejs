@@ -3,6 +3,9 @@
     <%- include ("./partials/head.ejs") %>
 <body class="card-panel lime">
     <%- include ("./partials/header.ejs") %>
+    <div  class="col s12 m7">
+        <div class="card horizontal">
+            <div class="card-stacked">
     <h1 class="text-center">Coffee Recipes</h1>
     <% if(recipe) { %>
         The recipe is: <%= recipe.name %>
@@ -12,9 +15,10 @@
         <p><%= recipe.instructions %></p>
         <% } else { %>
             <h1>Recipe not found</h1>
-        <% } %>
-
-    <div class="btn-format">
+    <% } %>
+            </div>
+        </div>
+    </div>
     <%- include ("./partials/footer.ejs") %>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 </body>
