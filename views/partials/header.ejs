@@ -1,21 +1,25 @@
 <header>
-    <nav class="nav-extended">
-    <div class="container center">
-        <div class="nav-wrapper">
-        <h1>Coffee Recipes</h1>
-        <a href="/recipes" class="nav-link">All Coffee Recipes</a>
-            <% if (currentUser) { %>
-                <a href="/recipes/new" class="nav-link">Add New Recipe</a>
-                <span class="welcome">Welcome <%= currentUser.username %></span>
-                <form action="/sessions?_method=DELETE" method="post">
-                    <input type="submit" value="Log Out">
-                </form>
-            <% } else { %>
-                <li><a href="/users/new" class="nav-link">Sign Up</a></li>
-                <li><a href="/sessions/new" class="nav-link">Log In</a></li>
-        <% } %>
+    <nav>
+        <div class="container center">
+            <div class="row">
+                <h1>Coffee Recipes</h1>
+                <div>
+                    <div class="col s3 grey ">
+                        <a href="/recipes" class="nav-link">All Coffee Recipes</a>
+                        <% if (currentUser) { %>
+                        <a href="/recipes/new" class="nav-link">Add New Recipe</a>
+                        <span class="welcome">Welcome <%= currentUser.userName %></span>
+                        <form action="/sessions?_method=DELETE" method="post">
+                            <input type="submit" value="Log Out">
+                        </form>
+                        <% } else { %>
+                        <li><a href="/users/new" class="nav-link">Sign Up</a></li>
+                        <li><a href="/sessions/new" class="nav-link">Log In</a></li>
+                        <% } %>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
     </nav>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <nav class="nav-extended">

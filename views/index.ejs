@@ -8,8 +8,8 @@
     <div>
         <% for(let i = 0; i < recipes.length; i++) { %>
             <div class="row">
-                <div class="col s12 m6">
-                    <div class="card">  
+                <div class="col s12 m5">
+                    <div class="card center">  
                         <span class="card-title"><a href="/recipes/<%= recipes[i]._id %>"><%= recipes[i].name %></a></span>
                         <div class="card-content">
                             <p><%= recipes[i].description %></p>
