@@ -1,3 +1,8 @@
 .Coffee-Recipes {
     background-color: antiquewhite;
 }
+header, ul, li {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}

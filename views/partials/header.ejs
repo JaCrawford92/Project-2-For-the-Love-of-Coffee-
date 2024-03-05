@@ -1,13 +1,14 @@
 <header>
-    <nav>
+    <nav class="nav-extended">
         <div class="container center">
             <div class="row">
                 <h1>Coffee Recipes</h1>
                 <div>
-                    <div class="col s3 grey ">
-                        <a href="/recipes" class="nav-link">All Coffee Recipes</a>
+                    <div>
+                        <ul>
+                        <li><a href="/recipes" class="nav-link">All Coffee Recipes</a></li>
                         <% if (currentUser) { %>
-                        <a href="/recipes/new" class="nav-link">Add New Recipe</a>
+                        <li><a href="/recipes/new" class="nav-link">Add New Recipe</a></li>
                         <span class="welcome">Welcome <%= currentUser.userName %></span>
                         <form action="/sessions?_method=DELETE" method="post">
                             <input type="submit" value="Log Out">
@@ -16,6 +17,7 @@
                         <li><a href="/users/new" class="nav-link">Sign Up</a></li>
                         <li><a href="/sessions/new" class="nav-link">Log In</a></li>
                         <% } %>
+                        </ul>
                     </div>
                 </div>
             </div>

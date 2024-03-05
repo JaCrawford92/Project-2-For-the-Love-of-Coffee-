@@ -5,7 +5,7 @@ const User = require('../models/User.js')
 
 // GET /signup
 router.get('/new', (req, res) => {
-    res.render('sessions/new.ejs', {
+    res.render('sessions/new', {
         currentUser: req.session.currentUser
     })
 })
