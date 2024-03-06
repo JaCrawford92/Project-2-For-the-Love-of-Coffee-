@@ -1,3 +1,6 @@
+body {
+    background-image: url("");
+}
 .Coffee-Recipes {
     background-color: antiquewhite;
 }
@@ -7,9 +10,29 @@ header, ul, li {
     padding: 0;
 }
 
+.flex-container {
+    display: flex;
+    justify-content: space-around;
+    flex-flow: row wrap;
+    list-style: none;
+    flex-direction: row;
+}
+
+.flex-item {
+    margin: 15px;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: antiquewhite;
+    flex-direction: row;
+}
+
 header, .home {
     color: black;
-    
+
+}
+
+header, .container {
+    display: flex;
 }
 
 nav {
@@ -20,8 +43,8 @@ nav {
 }
 
 .home {
-    background-color: antiquewhite;
-    padding: 20px;
+    background-color:  rgb(205, 166, 114);
+    padding: 10px;
     margin: 20px;
     border-radius: 10px;
 }
@@ -32,4 +55,16 @@ nav {
     margin: 20px;
     border-radius: 10px;
 
+}
+
+.card-panel {
+    background-color: rgb(205, 166, 114);
+}
+
+.card {
+    background-color: antiquewhite;
+    padding: auto;
+    margin: auto;
+    border-radius: 10px;
+    
 }

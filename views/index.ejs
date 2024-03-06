@@ -5,20 +5,22 @@
   <%- include ('./partials/header.ejs') %>
     <!-- <h4>Add new Recipes</h4>
     <a href="/recipes/new">Add New Recipe</a> -->
-    <div class="">
+    <div class="row">
         <% for(let i = 0; i < recipes.length; i++) { %>
-            <div class="row">
+            <div>
                 <div class="col s12 m5">
                     <div class="card center">  
                         <span class="card-title"><a href="/recipes/<%= recipes[i]._id %>"><%= recipes[i].name %></a></span>
                         <div class="card-content">
-                            <p><%= recipes[i].description %></p>
-                            <img src="<%= recipes[i].img %>" alt="Coffee image">
+                            <ul class="flex-container">
+                            <li class="flex-item"><p><%= recipes[i].description %></p></li>
+                            <img src="/recipes/<%= recipes[i].img %>" alt="Coffee image">
                             <br>
                             <a href="/recipes/<%= recipes[i]._id %>/edit">Edit</a>
                             <form action="/recipes/<%= recipes[i]._id %>?_method=DELETE" method="POST">
                                 <input type="submit" value="Delete">
                             </form>
+                            </ul>
                         </div>
                     </div>
                 </div> 

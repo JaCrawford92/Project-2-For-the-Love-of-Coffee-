@@ -67,7 +67,7 @@ const seed = async (req, res) => {
               description: "A simple, robust coffee made by adding hot water to espresso, resulting in a strength similar to drip coffee but with a different flavor.",
               ingredients: ["1 shot espresso", "2 cups hot water"],
               instructions: "Prepare an espresso shot. Add hot water to the espresso until it reaches the desired strength.",
-              img: "americano.jpeg"
+              img: "https://untitledfolder/images/americano.jpeg"
             },
             {
               name: "Café Latte",
