@@ -6,6 +6,17 @@
 ## Description
 Coffee is a drink that most people enjoy in their life. Here is an app that lets you search current coffee recipes and also gives you the ability to create new, edit and delete recipes.
 
+## Screen Shots
+![image](https://github.com/JaCrawford92/Project-2-For-the-Love-of-Coffee-/assets/149886160/26047087-fd61-4e7b-81ff-2714f0c0b329)
+
+![image](https://github.com/JaCrawford92/Project-2-For-the-Love-of-Coffee-/assets/149886160/090a07a9-f5ec-481e-977c-6010b5885e38)
+
+![image](https://github.com/JaCrawford92/Project-2-For-the-Love-of-Coffee-/assets/149886160/372a4b4f-8084-49e1-8040-09c1fa28c02e)
+
+![image](https://github.com/JaCrawford92/Project-2-For-the-Love-of-Coffee-/assets/149886160/6c44442b-d842-4d50-9c8c-14a76ff62184)
+
+![image](https://github.com/JaCrawford92/Project-2-For-the-Love-of-Coffee-/assets/149886160/66898a16-af44-4d9d-b810-af55777ce343)
+
 
 ## Get Started
 https://github.com/JaCrawford92/Project-2-For-the-Love-of-Coffee-
