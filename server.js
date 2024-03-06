@@ -34,8 +34,8 @@ app.use('/sessions', sessionsController)
 // Home Route
 app.get('/', (req, res) => {
     // res.send('For the love of Coffee')
-    res.redirect('/recipes/')
-    // res.render('recipe/index')
+    res.redirect('/recipes')
+    res.render('recipe/index')
 })
 
 app.listen(process.env.PORT, () => {

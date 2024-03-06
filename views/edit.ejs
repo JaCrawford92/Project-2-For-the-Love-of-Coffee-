@@ -5,7 +5,7 @@
     <%- include ('./partials/header.ejs') %>
     <h1 class="">Edit Coffee Recipes <%= recipe.name %></h1>
     <form action="/recipes/<%= recipe._id %>?_method=PUT" method="POST" class="container-sm bg-light p-3">
-        <div>
+        <div class="card-content">
             <div>
                 <label for="name" class="form-label">Coffee</label>
                 <input 

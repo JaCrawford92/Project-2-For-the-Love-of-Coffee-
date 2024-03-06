@@ -3,11 +3,10 @@
     <%- include ("./partials/head.ejs") %>
 <body class="card-panel">
     <%- include ("./partials/header.ejs") %>
-    <div class="col s12 m7 center">
-        <div class="card horizontal">
+    <div class="container col s12 m7 center">
+        <div class="card">
             <div class="card-stacked">
-                <h1 class="center"><%= recipe.name %></h1>
-                <img src="<%= recipe.img %>" alt="Coffee-Image">
+                <h3 class="center"><%= recipe.name %></h3>
                 <% if(recipe) { %>
                 The recipe is: <%= recipe.name %>
                 <p>Ingredients: <%= recipe.ingredients %></p>
@@ -20,6 +19,11 @@
     </div>
     <%- include ("./partials/footer.ejs") %>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <style>
+        .card-panel {
+            background-color: antiquewhite;
+        }
+    </style>
 </body>
 </html>
 

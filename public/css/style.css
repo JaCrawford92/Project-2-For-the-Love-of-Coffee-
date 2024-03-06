@@ -68,3 +68,10 @@ nav {
     border-radius: 10px;
     
 }
+
+.card-content {
+    background-color: antiquewhite;
+    padding: auto;
+    margin: auto;
+    border-radius: 10px;    
+}
