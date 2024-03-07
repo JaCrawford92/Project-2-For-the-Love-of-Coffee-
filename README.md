@@ -40,6 +40,8 @@ https://for-the-love-of-coffee-384aa38d37d9.herokuapp.com/sessions/new
 - https://www.w3schools.com/
 - https://htmlcolorcodes.com/color-chart/
 - https://stackoverflow.com
+- https://youtube.com
+- https://github.com
 
 ## About Me
 - https://www.linkedin.com/in/ja-crawford92/
