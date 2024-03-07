@@ -4,7 +4,7 @@ const recipeCtrl = require('../controllers/recipeController')
 const isAuthenticated = require('../controllers/isAuthenticated')
 
 
-router.use(isAuthenticated)
+// router.use(isAuthenticated)
 // GET /recipes
 router.get('/', recipeCtrl.index)
 
