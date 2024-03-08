@@ -2,7 +2,7 @@
 const router = require('express').Router()
 const recipeCtrl = require('../controllers/recipeController')
 const isAuthenticated = require('../controllers/isAuthenticated')
-
+const isOwner = require('../controllers/recipeController')
 
 // router.use(isAuthenticated)
 // GET /recipes
@@ -20,13 +20,15 @@ router.get('/seed', recipeCtrl.seed)
 // GET /recipes/:id
 router.get('/:id', recipeCtrl.show)
 
+// isAuthenticated to protect the edit and delete routes
 // GET /recipes/:id/edit
-router.get('/:id/edit', recipeCtrl.edit)
+router.use(isAuthenticated)
+router.get('/:id/edit', isAuthenticated, recipeCtrl.edit)
 
 // PUT /recipes/:id
-router.put('/:id', recipeCtrl.update)
+router.put('/:id', isAuthenticated, recipeCtrl.update)
 
 // DELETE /recipes/:id
-router.delete('/:id', recipeCtrl.destroy)
+router.delete('/:id', isAuthenticated, recipeCtrl.destroy)
 
 module.exports = router;

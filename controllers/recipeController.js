@@ -1,4 +1,5 @@
-const Recipe = require('../models/recipe.js')
+const Recipe = require('../models/User').Recipe
+
 
 
 // Index
@@ -38,6 +39,7 @@ const create = async (req, res) => {
         console.log(err)
     }
 }
+
 
 // Show Recipe
 const show = async (req, res) => {
@@ -164,6 +166,25 @@ const editForm = async (req, res) => {
     }
 }
 
+// const isOwner = async (req, res, next) => {
+//     try {
+//         const recipe = await Recipe.findById(req.params.id)
+//         const user = req.session.currentUser
+//         if(!recipe) {
+//             return res.send('No recipe found')
+
+//         } else if(recipe.user.toString() !== req.user.id){
+//             return res.redirect('/recipes')
+//         }
+
+//         return next()
+
+//     } catch(err) {
+//         console.log(err)
+//     }
+    
+// }
+
 
 module.exports = {
     index,
@@ -173,5 +194,6 @@ module.exports = {
     seed,
     update,
     destroy,
-    edit: editForm
+    edit: editForm,
+    // isOwner
 }
