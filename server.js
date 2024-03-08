@@ -36,7 +36,7 @@ app.use('/sessions', sessionsController)
 app.get('/', (req, res) => {
     // res.send('For the love of Coffee')
     res.redirect('/recipes')
-    res.render('recipe/index')
+    res.render('index')
 })
 
 app.listen(process.env.PORT, () => {

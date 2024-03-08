@@ -7,9 +7,9 @@
                     <div>
                         <ul>
                         <li><a href="/recipes" class="nav-link">All Coffee Recipes</a></li>
-                        <% if (currentUser) { %>
+                        <% if(currentUser) { %>
                         <li><a href="/recipes/new" class="nav-link">Add New Recipe</a></li>
-                        <span class="welcome">Welcome <%= currentUser.userName %></span>
+                        <span class="welcome">Welcome <%= currentUser.username %></span>
                         <form action="/sessions?_method=DELETE" method="post">
                             <input type="submit" value="Log Out">
                         </form>

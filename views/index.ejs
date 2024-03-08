@@ -15,10 +15,12 @@
                             <ul class="flex-container">
                             <li class="flex-item"><p><%= recipes[i].description %></p></li>
                             <br>
+                            <% if(currentUser && recipes.userId && currentUser._id === recipe.userId.toString()) { %>
                             <a href="/recipes/<%= recipes[i]._id %>/edit">Edit</a>
                             <form action="/recipes/<%= recipes[i]._id %>?_method=DELETE" method="POST">
                                 <input type="submit" value="Delete">
                             </form>
+                            <% } %>
                             </ul>
                         </div>
                     </div>
