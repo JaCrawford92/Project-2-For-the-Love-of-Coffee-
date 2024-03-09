@@ -2,7 +2,7 @@
 const router = require('express').Router()
 const recipeCtrl = require('../controllers/recipeController')
 const isAuthenticated = require('../controllers/isAuthenticated')
-// const isOwner = require('../controllers/recipeController')
+const Recipe = require('../models/User').User
 
 // router.use(isAuthenticated)
 // GET /recipes
@@ -24,31 +24,32 @@ router.get('/:id', recipeCtrl.show)
 // GET /recipes/:id/edit
 // router.use(isAuthenticated)
 
-const isOwner = async (req, res, next) => {
-    try {
-        const recipe = await Recipe.findById(req.params.recipeId)
-        const user = req.session.currentUser
-        if(!recipe) {
-            return res.send('No recipe found')
+// const isOwner = async (req, res, next) => {
+//     try {
+//         const recipe = await Recipe.findById(req.params.recipeId)
+//         console.log(recipe)
+//         const user = req.session.currentUser
+//         if(!recipe) {
+//             return res.send('No recipe found')
 
-        } else if(recipe.user.toString() !== req.session.currentUser._id){
-            return res.send('You are not the owner of this recipe')
-        }
+//         } else if(recipe.user.toString() !== req.session.currentUser._id){
+//             return res.send('You are not the owner of this recipe')
+//         }
 
-        return next()
+//         return next()
 
-    } catch(err) {
-        console.log(err)
-    }
+//     } catch(err) {
+//         console.log(err)
+//     }
     
-}
+// }
 
-router.get('/:id/edit', isAuthenticated, isOwner, recipeCtrl.edit)
+router.get('/:id/edit', isAuthenticated, recipeCtrl.edit)
 
 // PUT /recipes/:id
-router.put('/:id', isAuthenticated, isOwner, recipeCtrl.update)
+router.put('/:id', isAuthenticated, recipeCtrl.update)
 
 // DELETE /recipes/:id
-router.delete('/:id', isAuthenticated, isOwner, recipeCtrl.destroy)
+router.delete('/:id', isAuthenticated, recipeCtrl.destroy)
 
 module.exports = router;
