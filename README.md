@@ -17,9 +17,13 @@ Coffee is a drink that most people enjoy in their life. Here is an app that lets
 
 ![image](https://github.com/JaCrawford92/Project-2-For-the-Love-of-Coffee-/assets/149886160/66898a16-af44-4d9d-b810-af55777ce343)
 
+## Planning
+- https://trello.com/b/dPGUkGRm/for-the-love-of-coffee
+- https://lucid.app/lucidchart/02746643-5a18-4728-8bab-40d78e9be01f/edit?page=0_0&invitationId=inv_b007e624-423a-4b90-ad59-e73df8c0c1d9#
+
 
 ## Get Started
-https://for-the-love-of-coffee-384aa38d37d9.herokuapp.com/recipes
+- https://for-the-love-of-coffee-384aa38d37d9.herokuapp.com/recipes
 
 ## Built with
 - EJS
@@ -29,14 +33,17 @@ https://for-the-love-of-coffee-384aa38d37d9.herokuapp.com/recipes
 - Materialize
 - MongoDB
 - Node.js
+- GitHub
+- Heroku
 
 ## Next Steps
 - Adding Images
 - Adding a Search Bar
-- Different Styling 
+- Different Styling (looking at Tailwind)
 - Adding Regions and Drink History
 
 ## References Link
+
 - https://www.geeksforgeeks.org/use-ejs-as-template-engine-in-node-js/
 - https://materializecss.com/about.html
 - https://chat.openai.com
