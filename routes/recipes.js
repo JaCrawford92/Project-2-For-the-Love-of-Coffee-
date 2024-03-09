@@ -2,6 +2,7 @@
 const router = require('express').Router()
 const recipeCtrl = require('../controllers/recipeController')
 const isAuthenticated = require('../controllers/isAuthenticated')
+const canEditAndDelete = require('../middlewares/authMiddleware')
 const Recipe = require('../models/User').User
 
 //Use Fruits_app lesson as a guide to create the routes for the recipe model
@@ -23,12 +24,12 @@ router.get('/:id', recipeCtrl.show)
 
 
 // GET /recipes/:id/edit
-router.get('/:id/edit', isAuthenticated, recipeCtrl.edit)
+router.get('/:id/edit', isAuthenticated, canEditAndDelete, recipeCtrl.edit)
 
 // PUT /recipes/:id
-router.put('/:id', isAuthenticated, recipeCtrl.update)
+router.put('/:id', isAuthenticated, canEditAndDelete, recipeCtrl.update)
 
 // DELETE /recipes/:id
-router.delete('/:id', isAuthenticated, recipeCtrl.destroy)
+router.delete('/:id', isAuthenticated, canEditAndDelete, recipeCtrl.destroy)
 
 module.exports = router;

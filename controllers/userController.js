@@ -45,10 +45,9 @@ router.put('/:id/recipes/:recipeId', async (req, res) => {
         //update the recipe itself
         const updatedRecipe = await Recipe.findByIdAndUpdate(recipeId, req.body, {new: true})
 
-        if(userId !== req.session.currentUser) {
-            return res.send('You are not authorized to edit this recipe')
-        }
-        await 
+        // if(userId !== recipeId) {
+        //     return res.send('You are not authorized to edit this recipe')
+        // }
 
         updatedRecipe.save()
         res.redirect(`/users/${userId}`)

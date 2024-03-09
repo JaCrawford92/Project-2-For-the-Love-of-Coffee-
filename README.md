@@ -19,7 +19,7 @@ Coffee is a drink that most people enjoy in their life. Here is an app that lets
 
 
 ## Get Started
-https://for-the-love-of-coffee-384aa38d37d9.herokuapp.com/sessions/new
+https://for-the-love-of-coffee-384aa38d37d9.herokuapp.com/recipes
 
 ## Built with
 - EJS

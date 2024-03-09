@@ -47,8 +47,18 @@
                     value="<%= recipe.instructions %>"
                     placeholder="Instructions">
             </div>
-        </div>
+            <div>
+                <label for="username" class="form-label">User ID</label>
+                <input 
+                    type="hidden"
+                    class="form-control"
+                    name="username"
+                    id="username"
+                    value="<%= recipe.userId %>"
+                    placeholder="User ID">
+            </div>
         <div>
+    </form>        
             <input type="submit" value="Update Recipe" class="btn btn-primary">
     <%- include ("./partials/footer.ejs") %> 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"> 
