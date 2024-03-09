@@ -15,6 +15,7 @@
                             <ul class="flex-container">
                             <li class="flex-item"><p><%= recipes[i].description %></p></li>
                             <br>
+                            <!-- //originally used ChatGPT, but changed it make sure the edit and delete worked -->
                             <% if(recipes[i].userId) { %>
                             <a href="/recipes/<%= recipes[i]._id %>/edit">Edit</a>
                             <form action="/recipes/<%= recipes[i]._id %>?_method=DELETE" method="POST">

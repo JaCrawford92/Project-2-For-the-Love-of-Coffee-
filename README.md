@@ -40,8 +40,10 @@ https://for-the-love-of-coffee-384aa38d37d9.herokuapp.com/sessions/new
 - https://www.w3schools.com/
 - https://htmlcolorcodes.com/color-chart/
 - https://stackoverflow.com
-- https://youtube.com
+- https://stackoverflow.com/questions/75125381/log-a-user-in-and-get-their-profile
+- https://www.youtube.com/watch?v=_PDLuDx2Uto
 - https://github.com
+-https://mongoosejs.com/docs/subdocs.html
 
 ## About Me
 - https://www.linkedin.com/in/ja-crawford92/

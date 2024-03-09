@@ -2,6 +2,7 @@
 <html lang="en">
     <%- include ("./partials/head.ejs") %>
 <body class="Coffee-Recipes row">
+    <!-- // Use Fruits app as a reference to create the form -->
     <%- include ('./partials/header.ejs') %>
     <h1 class="">Edit Coffee Recipes <%= recipe.name %></h1>
     <form action="/recipes/<%= recipe._id %>?_method=PUT" method="POST" class="container-sm bg-light p-3">

@@ -3,6 +3,7 @@ const bcrypt = require('bcrypt')
 const User = require('../models/User').User
 const Recipe = require('../models/User').Recipe
 
+//Used GA lesson as a guide to create the routes for the user model
 // New User
 router.get('/new', (req, res) => {
     res.render('users/new.ejs', {currentUser: req.session.currentUser})
@@ -43,6 +44,11 @@ router.put('/:id/recipes/:recipeId', async (req, res) => {
         await user.save()
         //update the recipe itself
         const updatedRecipe = await Recipe.findByIdAndUpdate(recipeId, req.body, {new: true})
+
+        if(userId !== req.session.currentUser) {
+            return res.send('You are not authorized to edit this recipe')
+        }
+        await 
 
         updatedRecipe.save()
         res.redirect(`/users/${userId}`)
@@ -99,7 +105,7 @@ router.get('/:id/edit', async (req, res) => {
         res.render('users/edit', {
             user: foundUser,
             recipe: foundRecipe,
-            currentUser: req.session.currentUser
+            userId: req.session.currentUser
         })
     } catch(err) {
         console.log(err)

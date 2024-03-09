@@ -6,12 +6,13 @@ const recipeSchema = new mongoose.Schema({
     description: String,
     ingredients: [String],
     instructions: String,
+    username: {type: String, required: true},
     userId: {type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true},
 }, {timestamps: true})
 
 const userSchema = Schema ({
     username: {type: String, required: true, unique: true},
-    password: {type: String, required: true},
+    password: {type: String, required: true, unique: true},
 
     // Embedding the Recipe model into the User model
     recipes: [recipeSchema],

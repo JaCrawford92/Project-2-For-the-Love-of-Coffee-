@@ -32,6 +32,7 @@ const newForm = (req, res) => {
 // Create Recipe
 // Post
 const create = async (req, res) => {
+    //Billie helped me with this code
     try {
         console.log(req.body)
         if (!req.session.currentUser) {
@@ -157,8 +158,45 @@ const destroy = async (req, res) => {
 // Update Recipe
 const update = async (req, res) => {
     try {
-        
+        const userId = req.session.currentUser
         const recipe = await Recipe.findByIdAndUpdate(req.params.id, req.body, {new: true})
+        // const username = await User.findById(req.params.id, req.body, {new: true})
+
+        // if (userId === username) {
+        //     return res.send('You are not authorized to edit this recipe')
+        // }
+
+        // if(userId !== recipe) {
+        //     // return res.send('You are not authorized to edit this recipe')
+        //     res.status(401).send('You are not authorized to edit this recipe')
+        //     console.log(recipe) 
+        //     console.log(userId) 
+        // } else {
+        //     await recipe.save()
+        //     next()
+        //     // res.redirect('/recipes')
+        // }
+        // if(userId === recipe.userId) {
+        //     await recipe.save()
+        //     res.redirect('/recipes')
+        // }
+        // console.log(req.body)
+        // if (userId !== req.session.currentUser) {
+        //     return res.send('You must be logged in to create a recipe')
+        // } 
+        // const userId = req.session.currentUser
+
+        // // req.body.userId = userId
+        // const recipeData = {...req.body, userId}
+
+        // console.log(userId)
+
+        // const newRecipe = await Recipe.up(recipeData)
+        // console.log(newRecipe)
+        // await recipe.save()
+        // res.redirect('/recipes')
+
+        await recipe.save()
         res.redirect('/recipes')
     }catch(err) {
         console.log(err)
@@ -169,6 +207,11 @@ const update = async (req, res) => {
 const editForm = async (req, res) => {
     try {
         const recipe = await Recipe.findById(req.params.id)
+
+        if(!recipe) {
+            res.redirect('/recipes')
+        }
+
         res.render('edit.ejs', {
             recipe,
             tabTitle: 'Edit Recipe',
