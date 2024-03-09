@@ -47,7 +47,8 @@ https://for-the-love-of-coffee-384aa38d37d9.herokuapp.com/recipes
 - https://stackoverflow.com/questions/75125381/log-a-user-in-and-get-their-profile
 - https://www.youtube.com/watch?v=_PDLuDx2Uto
 - https://github.com
--https://mongoosejs.com/docs/subdocs.html
+- https://mongoosejs.com/docs/subdocs.html
+- https://www.mongodb.com/community/forums/t/adding-into-embedded-document/7898
 
 ## About Me
 - https://www.linkedin.com/in/ja-crawford92/
