@@ -12,7 +12,7 @@ router.get('/new', (req, res) => {
 router.delete('/:id/recipes/:recipeId', async (req, res) => {
     try {
         // set values user and recipe ids
-        const userId = req.params.userid
+        const userId = req.params.userId
         const recipeId = req.params.recipeId
 
         // find user by id

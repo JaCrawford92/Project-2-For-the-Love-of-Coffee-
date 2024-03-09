@@ -1,4 +1,5 @@
 const Recipe = require('../models/User').Recipe
+const User = require('../models/User').User
 
 
 
@@ -32,11 +33,23 @@ const newForm = (req, res) => {
 // Post
 const create = async (req, res) => {
     try {
-        const newRecipe = await Recipe.create(req.body)
+        console.log(req.body)
+        if (!req.session.currentUser) {
+            return res.send('You must be logged in to create a recipe')
+        } 
+        const userId = req.session.currentUser
+
+        // req.body.userId = userId
+        const recipeData = {...req.body, userId}
+
+        console.log(userId)
+
+        const newRecipe = await Recipe.create(recipeData)
         console.log(newRecipe)
         res.redirect('/recipes')
     }catch(err) {
         console.log(err)
+
     }
 }
 
@@ -144,7 +157,7 @@ const destroy = async (req, res) => {
 // Update Recipe
 const update = async (req, res) => {
     try {
-        // req.body.ingredients = req.body.ingredients.split(',')
+        
         const recipe = await Recipe.findByIdAndUpdate(req.params.id, req.body, {new: true})
         res.redirect('/recipes')
     }catch(err) {
@@ -166,25 +179,6 @@ const editForm = async (req, res) => {
     }
 }
 
-// const isOwner = async (req, res, next) => {
-//     try {
-//         const recipe = await Recipe.findById(req.params.id)
-//         const user = req.session.currentUser
-//         if(!recipe) {
-//             return res.send('No recipe found')
-
-//         } else if(recipe.user.toString() !== req.user.id){
-//             return res.redirect('/recipes')
-//         }
-
-//         return next()
-
-//     } catch(err) {
-//         console.log(err)
-//     }
-    
-// }
-
 
 module.exports = {
     index,
@@ -195,5 +189,4 @@ module.exports = {
     update,
     destroy,
     edit: editForm,
-    // isOwner
 }
