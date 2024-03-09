@@ -49,6 +49,7 @@ https://for-the-love-of-coffee-384aa38d37d9.herokuapp.com/recipes
 - https://github.com
 - https://mongoosejs.com/docs/subdocs.html
 - https://www.mongodb.com/community/forums/t/adding-into-embedded-document/7898
+- https://stackoverflow.com/questions/50984561/only-owner-creator-can-edit-delete-entry-expressjs
 
 ## About Me
 - https://www.linkedin.com/in/ja-crawford92/
