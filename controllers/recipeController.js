@@ -40,7 +40,6 @@ const create = async (req, res) => {
         } 
         const userId = req.session.currentUser
 
-        // req.body.userId = userId
         const recipeData = {...req.body, userId}
 
         console.log(userId)
@@ -171,8 +170,8 @@ const update = async (req, res) => {
 // Edit Recipe
 const editForm = async (req, res) => {
     try {
-        const recipe = await Recipe.findById(req.params.id)
 
+        const recipe = await Recipe.findById(req.params.id)
         if(!recipe) {
             res.redirect('/recipes')
         }

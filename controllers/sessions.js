@@ -13,6 +13,7 @@ router.get('/new', (req, res) => {
 
 // POST /sessions
 router.post('/', async (req, res) => {
+    // find the user
     try {
         const foundUser = await User.findOne({username: req.body.username})
         if(!foundUser){
@@ -31,6 +32,7 @@ router.post('/', async (req, res) => {
 
 // DELETE /sessions
 router.delete('/', (req, res)=> {
+    // destroy the session
     req.session.destroy(()=>{
         res.redirect('/')
     })

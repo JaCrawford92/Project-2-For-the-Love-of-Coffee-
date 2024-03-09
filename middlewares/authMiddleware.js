@@ -1,11 +1,12 @@
 const Recipe = require('../models/User').Recipe; // Adjust the path as necessary to correctly import your Recipe model
 
-// Chat GPT helped me figure out this middle ware
+// Chat GPT and Lesson helped me figure out this middleware
 const canEditAndDelete = async (req, res, next) => {
     try {
+        // Find the recipe by its ID
         const recipe = await Recipe.findById(req.params.id);
-        // Assuming req.session.currentUser holds the currently logged-in user's information,
-        // and _id is the identifier for both the user and the creator in the database
+
+        // Check if the current user is the creator of the recipe
         if (recipe.userId.equals(req.session.currentUser)) {
             next(); // Proceed if the current user is the creator
         } else {

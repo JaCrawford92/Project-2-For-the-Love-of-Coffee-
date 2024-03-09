@@ -6,7 +6,7 @@ const canEditAndDelete = require('../middlewares/authMiddleware')
 const Recipe = require('../models/User').User
 
 //Use Fruits_app lesson as a guide to create the routes for the recipe model
-// router.use(isAuthenticated)
+
 // GET /recipes
 router.get('/', recipeCtrl.index)
 
@@ -22,9 +22,8 @@ router.get('/seed', recipeCtrl.seed)
 // GET /recipes/:id
 router.get('/:id', recipeCtrl.show)
 
-
-// GET /recipes/:id/edit
-router.get('/:id/edit', isAuthenticated, canEditAndDelete, recipeCtrl.edit)
+// GET /recipes/:id/edit 
+router.get('/:id/edit', isAuthenticated, canEditAndDelete, recipeCtrl.edit) 
 
 // PUT /recipes/:id
 router.put('/:id', isAuthenticated, canEditAndDelete, recipeCtrl.update)

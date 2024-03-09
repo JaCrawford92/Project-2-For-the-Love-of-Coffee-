@@ -27,7 +27,7 @@ app.use(session({
 
 
 
-
+// Routes
 app.use('/recipes', recipeRoutes)
 app.use('/users', userController)
 app.use('/sessions', sessionsController)
@@ -39,6 +39,7 @@ app.get('/', (req, res) => {
     // res.render('index, {currentUser: req.session.currentUser}')
 })
 
+// Listener
 app.listen(process.env.PORT, () => {
     console.log('Your Coffee is brewing on port 3000')
 })

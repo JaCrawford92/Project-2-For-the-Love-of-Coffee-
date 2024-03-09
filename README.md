@@ -25,7 +25,10 @@ https://for-the-love-of-coffee-384aa38d37d9.herokuapp.com/recipes
 - EJS
 - JavaScript
 - CSS
+- HTML
 - Materialize
+- MongoDB
+- Node.js
 
 ## Next Steps
 - Adding Images
@@ -34,6 +37,7 @@ https://for-the-love-of-coffee-384aa38d37d9.herokuapp.com/recipes
 - Adding Regions and Drink History
 
 ## References Link
+- https://www.geeksforgeeks.org/use-ejs-as-template-engine-in-node-js/
 - https://materializecss.com/about.html
 - https://chat.openai.com
 - https://css-tricks.com/snippets/css/a-guide-to-flexbox/
